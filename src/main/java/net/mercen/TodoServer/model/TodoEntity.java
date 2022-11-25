@@ -1,6 +1,5 @@
 package net.mercen.TodoServer.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +8,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
+@Table(name = "todo_entity")
 public class TodoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,4 +22,11 @@ public class TodoEntity {
 
     @Column(nullable = false)
     private Boolean completed;
+
+    public TodoEntity(Long id, String title, Long order, Boolean completed){
+        this.id =  id;
+        this.title = title;
+        this.order = order;
+        this.completed = completed;
+    }
 }
